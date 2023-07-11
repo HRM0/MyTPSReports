@@ -1,16 +1,25 @@
 import React,{useState} from "react";
 
 const DataEntryForm = (props) => {
+    const [graphLabel, setGraphLabel] = useState(
+        {
+        graphTitle:'User Gain',
+        lineName:'Users Gained',
+        yName:'Users',
+        xName:'Year'
+        }
+        )
     const [formFields, setFormFields] = useState([
         {id:0,
-         userGain:'', 
-         year:''}
+         y:'', 
+         x:''}
     ]);
     
 
     const handleSubmit = (e) => {
         e.preventDefault()
-       props.collectData(formFields)
+
+       props.collectData(formFields,graphLabel)
     };
 
     const handleFormChange =(event, index) => {
@@ -23,8 +32,8 @@ const DataEntryForm = (props) => {
         
         let newDataPoint = {
             id:formFields.length,
-            userGain:"",
-            year:""
+            y:"",
+            x:""
         }
 
         setFormFields([...formFields, newDataPoint])
@@ -39,6 +48,42 @@ const DataEntryForm = (props) => {
     return (
         <div className="buildForm">
             <h3>Build your graph here</h3>
+            <div>
+                <label>Name your Data: </label>
+                <input type="text"
+                    name='graphTitle'
+                    onChange={(e) => setGraphLabel({...graphLabel, graphTitle: e.target.value})}
+                    value = {graphLabel.graphTitle}>
+                </input>
+            </div>
+            <div className="formElement">
+                <label>Name your Data: </label>
+                <input type="text"
+                    name='graphLabel'
+                    onChange={(e) => setGraphLabel({...graphLabel, lineName: e.target.value})}
+                    value = {graphLabel.lineName}>
+                </input>
+                <label htmlFor="chartStyle"> Chart Style: </label> 
+                <select name="chartStyle" id="chartStyle" value={props.chartType} onChange={(event) => props.displayChart(event.target.value)}>
+                    <option value="line">Line</option>
+                    <option value="bar">Bar</option>
+                    <option value="pie">Pie</option>
+                </select>
+            </div>
+            <div className="formElement">
+                <label>Y Axis Name: </label>
+                <input type="text"
+                    name='yName'
+                    onChange={(e) => setGraphLabel({...graphLabel, yName: e.target.value})}
+                    value = {graphLabel.yName}>
+                </input>
+                <label>X Axis Name: </label>
+                <input type="text"
+                    name='xName'
+                    onChange={(e) => setGraphLabel({...graphLabel, xName: e.target.value})}
+                    value = {graphLabel.xName}>
+                </input>
+            </div>
             <form onSubmit={handleSubmit} className="updateForm">
                 {formFields.map((form,index) => {
                     return (
@@ -46,16 +91,16 @@ const DataEntryForm = (props) => {
                             <label htmlFor={`y${form.id}`}>Y axis:</label>
                             <input
                                 type="text"
-                                name={`userGain`}
+                                name={`y`}
                                 onChange={(e) => handleFormChange(e, index)}
-                                value = {form.userGain}
+                                value = {form.y}
                             />
                             <label htmlFor={`x${form.id}`}> X axis:</label>
                             <input
                                 type="text"
-                                name={`year`}
+                                name={`x`}
                                 onChange={(e) => handleFormChange(e, index)}
-                                value = {form.year}
+                                value = {form.x}
                             />
                             <button onClick={() => removeField(index)}>Remove</button>
                         </div>
