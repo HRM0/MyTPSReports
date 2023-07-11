@@ -50,7 +50,7 @@ const GptPrompt = (props) => {
                 </div>
                 <button type="submit">Submit</button>
             </form>
-            {printMessage()}
+            {response && printMessage()}
         </div>
     )
 }

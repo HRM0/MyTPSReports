@@ -55,6 +55,10 @@ body {
   margin:.5em auto;
 }
 
+.mainContainer {
+  margin:0 auto;
+  width:75%;
+}
 
 .formElement {
   display: flex;
