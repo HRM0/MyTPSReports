@@ -52,13 +52,9 @@ body {
   background-color: #E6F4F1;
   border-radius:15px;
   padding:1em;
-  margin:.5em auto;
+  margin:.5em auto 0;
 }
 
-.mainContainer {
-  margin:0 auto;
-  width:75%;
-}
 
 .formElement {
   display: flex;
@@ -67,11 +63,14 @@ body {
   padding:1em;
 }
 
-.graphContainer {
+.mainContainer {
   background-color: #E6F4F1;
   border-radius:15px;
-  margin:.5em auto;
-  width:73%;
+  margin:.5em;
+  display: inline-block;
+  position: relative;
+  padding: 0 2em;
+  width: 70%;
 }
 
 canvas {

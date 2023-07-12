@@ -89,11 +89,11 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <DataEntryForm collectData={collectData} displayChart={setChartType} chartType= {chartType}/>
-      <div className='graphContainer'>
+      <div className="mainContainer">
+        <DataEntryForm collectData={collectData} displayChart={setChartType} chartType= {chartType}/>
         {displayChart()}
+        <GptPrompt data={chartData} chart={displayChart()}/>
       </div>
-      <GptPrompt data={chartData} chart={displayChart()}/>
     </div>
   );
 }

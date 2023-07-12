@@ -49,7 +49,7 @@ const DataEntryForm = (props) => {
         <div className="buildForm">
             <h3>Build your graph here</h3>
             <div>
-                <label>Name your Data: </label>
+                <label>Name your Graph: </label>
                 <input type="text"
                     name='graphTitle'
                     onChange={(e) => setGraphLabel({...graphLabel, graphTitle: e.target.value})}
