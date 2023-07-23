@@ -11,7 +11,7 @@ const GptPrompt = (props) => {
         const createMyMemo = `${JSON.stringify(props.data[0])} please create a 3 paragraph business memo based on the data provided it should be about ${props.data[1].lineName}and note that ${prompt}.
                                 please format your response in html`
         console.log(`${JSON.stringify(props.data[0])}`)
-        axios.post("http://localhost:8080/chat", {createMyMemo})
+        axios.post("https://mytps-server.onrender.com/chat", {createMyMemo})
              .then((res) => {
                 setResponse(res.data.message.content)
                 //console.log(res.data.message.content)
