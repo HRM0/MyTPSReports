@@ -63,6 +63,15 @@ body {
   padding:1em;
 }
 
+.anythingElse {
+  display: flex;
+  justify-content: center;
+  width: 70%;
+  border:1 px solid black;
+  margin:auto;
+  padding:1em;
+}
+
 .mainContainer {
   background-color: #E6F4F1;
   border-radius:15px;
@@ -109,9 +118,19 @@ nav {
 
 .promptForm {
   display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius:15px;
-  width:70%;
+  width:50%;
   margin:auto;
-  padding:1em;
+  padding:1em 1em;
   background-color: #E6F4F1;
+}
+
+.promptForm > button {
+  height:2em;
+}
+
+.formItem {
+  margin: .5em;
 }

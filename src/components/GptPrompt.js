@@ -34,16 +34,17 @@ const GptPrompt = (props) => {
     return (
         <div>
             <form onSubmit={handleSubmit} className="promptForm">
-                <div>
-                    <label htmlFor={`prompt`}>What else should we know about the data? </label>
+                
+                    <label className="formItem" htmlFor={`prompt`}>What else should we know about the data? </label>
                     <input
+                        
                         type="text"
                         name={`prompt`}
                         onChange={(e) => setPrompt(e.target.value)}
                         value = {prompt}
                     />
-                </div>
-                <button type="submit">Submit</button>
+                
+                <button className="formItem" type="submit">Submit</button>
             </form>
             {response && printMessage()}
         </div>
