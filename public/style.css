@@ -97,6 +97,9 @@ nav {
   background-color: #4E8397;
 }
 
+.navLeft > img {
+  height:4em;
+}
 .navRight > a {
   margin: 0 .2em;
   padding:.5em;

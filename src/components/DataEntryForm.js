@@ -20,6 +20,8 @@ const DataEntryForm = (props) => {
         e.preventDefault()
 
        props.collectData(formFields,graphLabel)
+       props.collectData(formFields,graphLabel)
+       props.collectData(formFields,graphLabel)
     };
 
     const handleFormChange =(event, index) => {

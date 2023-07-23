@@ -9,12 +9,12 @@ const GptPrompt = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         const createMyMemo = `${JSON.stringify(props.data[0])} please create a 3 paragraph business memo based on the data provided it should be about ${props.data[1].lineName}and note that ${prompt}.
-                                please format your response in html. please have the word splitRightHere in the middle of the memo with no surrounding text`
+                                please format your response in html`
         console.log(`${JSON.stringify(props.data[0])}`)
         axios.post("http://localhost:8080/chat", {createMyMemo})
              .then((res) => {
                 setResponse(res.data.message.content)
-                console.log(res.data.message.content)
+                //console.log(res.data.message.content)
                 printMessage()
              })
              .catch((err) => {
@@ -23,11 +23,6 @@ const GptPrompt = (props) => {
     }
 
     function printMessage() {
-        // let newRes = response.split("splitRightHere")
-        // if (newRes.length > 1) {
-        //     newRes[0].replace("splitRightHere","")
-        //     newRes[1].replace("splitRightHere","")
-        // }
         return (
             <div className="response">
                 <div dangerouslySetInnerHTML={{__html:response}}></div>
